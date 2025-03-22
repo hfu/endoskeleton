@@ -232,6 +232,120 @@
         "line-color": "#E30B5D"
       },
       "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "BldA",
+      "source-layer": "BldA",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "UndergroundStation",
+      "source-layer": "UndergroundStation",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RdEdg",
+      "source-layer": "RdEdg",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RdCompt",
+      "source-layer": "RdCompt",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RailTrCL",
+      "source-layer": "RailTrCL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "SpcfArea",
+      "source-layer": "SpcfArea",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "StrctArea",
+      "source-layer": "StrctArea",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "StrctLine",
+      "source-layer": "StrctLine",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "TrfTnnlEnt",
+      "source-layer": "TrfTnnlEnt",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "PwrTrnsmL",
+      "source-layer": "PwrTrnsmL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "Anno",
+      "source-layer": "Anno",
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ]
+      }
     }
   ]
 }

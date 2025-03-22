@@ -12,27 +12,19 @@ hidden const color {
 
 open class Layer {
   hidden sl: String?
-  source: String?
-  id: String? = sl
-  `source-layer`: String? = sl
-  filter: Listing?
-  type: String?
-  maxzoom: Int?
-  minzoom: Int?
-  paint {}
-  layout {}
+  source: String? id: String? = sl `source-layer`: String? = sl
+  filter: Listing? type: String? maxzoom: Int? minzoom: Int?
+  paint {} layout {}
 }
 
 class Background extends Layer {
-  type = "background"
-  id = "background"
+  type = "background" id = "background"
   hidden c = "#ff0"
   paint { `background-color` = c }
 }
 
 class Line extends Layer {
-  source = "v"
-  type = "line"
+  source = "v" type = "line"
   hidden c = color.raspberry
   /* hidden z = new { 10 0.2 18 1 } */
   paint {
@@ -50,8 +42,7 @@ class Line extends Layer {
 }
 
 class Fill extends Layer {
-  source = "v"
-  type = "fill"
+  source = "v" type = "fill"
   hidden c = color.raspberry
   /* hidden z = new { 15 0 20 1 } */
   paint {
@@ -69,8 +60,7 @@ class Fill extends Layer {
 }
 
 open class Symbol extends Layer {
-  source = "v"
-  type = "symbol"
+  source = "v" type = "symbol"
   hidden c = color.raspberry
   layout {
     `text-font` = new { param.font }
@@ -81,8 +71,7 @@ open class Symbol extends Layer {
 }
 
 class LineSymbol extends Symbol {
-  hidden code: Int?
-  hidden field: String?
+  hidden code: Int? hidden field: String?
   filter = new { "==" new { "get" "vt_code" } code }
   layout {
     `text-field` = new { "get" field }
@@ -96,12 +85,8 @@ class LineSymbol extends Symbol {
   }
 }
 
-version = 8
-glyphs = param.glyphs
-sprite = param.sprite
-sources {
-  v { type = "vector" url = param.pmtiles }
-}
+version = 8 glyphs = param.glyphs sprite = param.sprite
+sources { v { type = "vector" url = param.pmtiles } }
 layers = new {
   new Background { c = "#f8f9fa" }
   new Fill { sl = "AdmArea" c = "rgb(255, 255, 0, 0.2)" }
@@ -121,4 +106,15 @@ layers = new {
   new Line { sl = "WStrL" }
   new Line { sl = "RdCL" }
   new Line { sl = "RailCL" }
+  new Fill { sl = "BldA" }
+  new Fill { sl = "UndergroundStation" }
+  new Line { sl = "RdEdg" }
+  new Line { sl = "RdCompt" }
+  new Line { sl = "RailTrCL" }
+  new Line { sl = "SpcfArea" }
+  new Fill { sl = "StrctArea" }
+  new Line { sl = "StrctLine" }
+  new Line { sl = "TrfTnnlEnt" }
+  new Line { sl = "PwrTrnsmL" }
+  new Symbol { sl = "Anno" }
 }
