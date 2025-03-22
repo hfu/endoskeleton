@@ -8,6 +8,7 @@ hidden const param {
 
 hidden const color {
   raspberry = "#E30B5D"
+  gray = "#888"
 }
 
 open class Layer {
@@ -75,6 +76,9 @@ class Annotation extends Symbol {
   layout {
     `text-field` = new { "get" "vt_text" }
     `text-writing-mode` = new { "horizontal" }
+  }
+  paint {
+    `text-color` = color.gray
   }
 }
 

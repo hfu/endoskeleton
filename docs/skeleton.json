@@ -701,7 +701,7 @@
       ],
       "type": "symbol",
       "paint": {
-        "text-color": "#E30B5D"
+        "text-color": "#888"
       },
       "layout": {
         "text-font": [
@@ -771,7 +771,7 @@
       ],
       "type": "symbol",
       "paint": {
-        "text-color": "#E30B5D"
+        "text-color": "#888"
       },
       "layout": {
         "text-font": [
@@ -811,7 +811,7 @@
       ],
       "type": "symbol",
       "paint": {
-        "text-color": "#E30B5D"
+        "text-color": "#888"
       },
       "layout": {
         "text-font": [
