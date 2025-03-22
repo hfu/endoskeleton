@@ -59,16 +59,6 @@
     },
     {
       "source": "v",
-      "id": "RdCL",
-      "source-layer": "RdCL",
-      "type": "line",
-      "paint": {
-        "line-color": "#E30B5D"
-      },
-      "layout": {}
-    },
-    {
-      "source": "v",
       "id": "RvrCL",
       "source-layer": "RvrCL",
       "type": "line",
@@ -149,6 +139,99 @@
         "text-size": 10,
         "text-max-angle": 360
       }
+    },
+    {
+      "source": "v",
+      "id": "Isbt",
+      "source-layer": "Isbt",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "Isbt_Numeric",
+      "source-layer": "Isbt",
+      "filter": [
+        "==",
+        [
+          "get",
+          "vt_code"
+        ],
+        7372
+      ],
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ],
+        "text-field": [
+          "get",
+          "vt_depth"
+        ],
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+        "symbol-placement": "line-center",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": 10,
+        "text-max-angle": 360
+      }
+    },
+    {
+      "source": "v",
+      "id": "TpgphLine",
+      "source-layer": "TpgphLine",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "WStrA",
+      "source-layer": "WStrA",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "WStrL",
+      "source-layer": "WStrL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RdCL",
+      "source-layer": "RdCL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RailCL",
+      "source-layer": "RailCL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
     }
   ]
 }

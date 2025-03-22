@@ -68,7 +68,7 @@ class Fill extends Layer {
   }
 }
 
-class Symbol extends Layer {
+open class Symbol extends Layer {
   source = "v"
   type = "symbol"
   hidden c = color.raspberry
@@ -77,6 +77,22 @@ class Symbol extends Layer {
   }
   paint {
     `text-color` = color.raspberry
+  }
+}
+
+class LineSymbol extends Symbol {
+  hidden code: Int?
+  hidden field: String?
+  filter = new { "==" new { "get" "vt_code" } code }
+  layout {
+    `text-field` = new { "get" field }
+    `text-allow-overlap` = true
+    `text-ignore-placement` = true
+    `symbol-placement` = "line-center"
+    `text-pitch-alignment` = "viewport"
+    `text-rotation-alignment` = "map"
+    `text-size` = 10
+    `text-max-angle` = 360
   }
 }
 
@@ -92,29 +108,17 @@ layers = new {
   new Fill { sl = "WA" }
   new Fill { sl = "TpgphArea" }
   new Line { sl = "Cstline" }
-  new Line { sl = "RdCL" }
   new Line { sl = "RvrCL" }
   new Line { sl = "WL" }
   new Line { sl = "WRltLine" }
   new Line { sl = "AdmBdry" }
   new Line { sl = "Cntr" }
-  new Symbol {
-    sl = "Cntr"
-    id = "Cntr_Numeric"
-    filter = new {
-      "=="
-      new { "get" "vt_code" }
-      7352
-    }
-    layout {
-      `text-field` = new { "get" "vt_alti" }
-      `text-allow-overlap` = true
-      `text-ignore-placement` = true
-      `symbol-placement` = "line-center"
-      `text-pitch-alignment` = "viewport"
-      `text-rotation-alignment` = "map"
-      `text-size` = 10
-      `text-max-angle` = 360
-    }
-  }
+  new LineSymbol { sl = "Cntr" id = "Cntr_Numeric" code = 7352 field = "vt_alti" }
+  new Line { sl = "Isbt" }
+  new LineSymbol { sl = "Isbt" id = "Isbt_Numeric" code = 7372 field = "vt_depth" }
+  new Line { sl = "TpgphLine" }
+  new Fill { sl = "WStrA" }
+  new Line { sl = "WStrL" }
+  new Line { sl = "RdCL" }
+  new Line { sl = "RailCL" }
 }
