@@ -172,11 +172,22 @@ layers = new {
 	`icon-size` = 0.5
       }
   }
-  new Annotation { sl = "Anno" id = "Annotation_1" }
+  new Annotation { sl = "Anno" id = "Annotation_1" 
+    filter = new { "match" new { "get" "vt_code" } new {
+      6368 6376 631 632 633 661 662 
+    } false true }
+  }
   new Annotation { sl = "Anno" id = "Annotation_2"
-    filter = new {
-      "any" new { "!" new { "has" "vt_flag17" } }
-      new { "in" new { "get" "vt_flag17" } new { "literal" new { 0 1 } } }
+    filter = new { "all" 
+      new { "any" 
+        new { "!" new { "has" "vt_flag17" } }
+        new { "in" new { "get" "vt_flag17" } new { "literal" new { 0 1 } } }
+      }
+      new { "match" 
+        new { "get" "vt_code" }
+	new { 3201 3204 3213 3213 3214 3215 3216 3217 3218 3243 }
+	false true
+      }
     }
     layout { `text-size` = 10 }
   }

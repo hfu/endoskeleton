@@ -1,6 +1,9 @@
 # endoskeleton
 Pkl that generates skeleton.json for optimal_bvmap-v1
 
+## Demo
+https://hfu.github.io/endoskeleton
+
 ## style.json location
 https://hfu.github.io/endoskeleton/skeleton.json
 

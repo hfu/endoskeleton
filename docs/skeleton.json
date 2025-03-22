@@ -681,6 +681,24 @@
       "source": "v",
       "id": "Annotation_1",
       "source-layer": "Anno",
+      "filter": [
+        "match",
+        [
+          "get",
+          "vt_code"
+        ],
+        [
+          6368,
+          6376,
+          631,
+          632,
+          633,
+          661,
+          662
+        ],
+        false,
+        true
+      ],
       "type": "symbol",
       "paint": {
         "text-color": "#E30B5D"
@@ -704,27 +722,51 @@
       "id": "Annotation_2",
       "source-layer": "Anno",
       "filter": [
-        "any",
+        "all",
         [
-          "!",
+          "any",
           [
-            "has",
-            "vt_flag17"
+            "!",
+            [
+              "has",
+              "vt_flag17"
+            ]
+          ],
+          [
+            "in",
+            [
+              "get",
+              "vt_flag17"
+            ],
+            [
+              "literal",
+              [
+                0,
+                1
+              ]
+            ]
           ]
         ],
         [
-          "in",
+          "match",
           [
             "get",
-            "vt_flag17"
+            "vt_code"
           ],
           [
-            "literal",
-            [
-              0,
-              1
-            ]
-          ]
+            3201,
+            3204,
+            3213,
+            3213,
+            3214,
+            3215,
+            3216,
+            3217,
+            3218,
+            3243
+          ],
+          false,
+          true
         ]
       ],
       "type": "symbol",
