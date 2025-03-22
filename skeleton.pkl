@@ -180,6 +180,7 @@ layers = new {
     filter = new { "match" new { "get" "vt_code" } new {
       6368 6376 631 632 633 661 662 
     } false true }
+    layout { `text-size` = 10 } 
   }
   new Annotation { sl = "Anno" id = "Annotation_2"
     filter = new { "all" 
