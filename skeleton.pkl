@@ -3,6 +3,7 @@ hidden const param {
   sprite = "https://gsi-cyberjapan.github.io/optimal_bvmap/sprite/std"
   pmtiles = "pmtiles://https://cyberjapandata.gsi.go.jp/xyz/" + 
     "optimal_bvmap-v1/optimal_bvmap-v1.pmtiles"
+  font = "NotoSansJP-Regular"
 }
 
 hidden const color {
@@ -14,6 +15,7 @@ open class Layer {
   source: String?
   id: String? = sl
   `source-layer`: String? = sl
+  filter: Listing?
   type: String?
   maxzoom: Int?
   minzoom: Int?
@@ -66,25 +68,53 @@ class Fill extends Layer {
   }
 }
 
+class Symbol extends Layer {
+  source = "v"
+  type = "symbol"
+  hidden c = color.raspberry
+  layout {
+    `text-font` = new { param.font }
+  }
+  paint {
+    `text-color` = color.raspberry
+  }
+}
+
 version = 8
 glyphs = param.glyphs
 sprite = param.sprite
 sources {
-  v {
-    type = "vector"
-    url = param.pmtiles
-  }
+  v { type = "vector" url = param.pmtiles }
 }
 layers = new {
   new Background { c = "#f8f9fa" }
-  /* new Fill { sl = "AdmArea" } */
+  new Fill { sl = "AdmArea" c = "rgb(255, 255, 0, 0.2)" }
   new Fill { sl = "WA" }
   new Fill { sl = "TpgphArea" }
   new Line { sl = "Cstline" }
   new Line { sl = "RdCL" }
   new Line { sl = "RvrCL" }
   new Line { sl = "WL" }
-  /* new Line { sl = "WRltLine" } */
+  new Line { sl = "WRltLine" }
   new Line { sl = "AdmBdry" }
   new Line { sl = "Cntr" }
+  new Symbol {
+    sl = "Cntr"
+    id = "Cntr_Numeric"
+    filter = new {
+      "=="
+      new { "get" "vt_code" }
+      7352
+    }
+    layout {
+      `text-field` = new { "get" "vt_alti" }
+      `text-allow-overlap` = true
+      `text-ignore-placement` = true
+      `symbol-placement` = "line-center"
+      `text-pitch-alignment` = "viewport"
+      `text-rotation-alignment` = "map"
+      `text-size` = 10
+      `text-max-angle` = 360
+    }
+  }
 }

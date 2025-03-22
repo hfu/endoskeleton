@@ -19,6 +19,16 @@
     },
     {
       "source": "v",
+      "id": "AdmArea",
+      "source-layer": "AdmArea",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgb(255, 255, 0, 0.2)"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
       "id": "WA",
       "source-layer": "WA",
       "type": "fill",
@@ -79,6 +89,16 @@
     },
     {
       "source": "v",
+      "id": "WRltLine",
+      "source-layer": "WRltLine",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
       "id": "AdmBdry",
       "source-layer": "AdmBdry",
       "type": "line",
@@ -96,6 +116,39 @@
         "line-color": "#E30B5D"
       },
       "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "Cntr_Numeric",
+      "source-layer": "Cntr",
+      "filter": [
+        "==",
+        [
+          "get",
+          "vt_code"
+        ],
+        7352
+      ],
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ],
+        "text-field": [
+          "get",
+          "vt_alti"
+        ],
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+        "symbol-placement": "line-center",
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": 10,
+        "text-max-angle": 360
+      }
     }
   ]
 }
