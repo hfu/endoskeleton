@@ -22,20 +22,37 @@
       "source-layer": "AdmArea",
       "type": "fill",
       "paint": {
-        "fill-opacity": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          15,
-          0,
-          20,
-          1
-        ],
         "fill-color": "#f0f"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "WA",
+      "source-layer": "WA",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#f0f"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "TpgphArea",
+      "source-layer": "TpgphArea",
+      "type": "fill",
+      "paint": {
+        "fill-color": "#f0f"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "Cstline",
+      "source-layer": "Cstline",
+      "type": "line",
+      "paint": {
+        "line-color": "#f0f"
       },
       "layout": {}
     },
@@ -45,19 +62,6 @@
       "source-layer": "RdCL",
       "type": "line",
       "paint": {
-        "line-width": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
-          10,
-          0.2,
-          18,
-          1
-        ],
         "line-color": "#f0f"
       },
       "layout": {}

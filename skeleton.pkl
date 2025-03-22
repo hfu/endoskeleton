@@ -27,9 +27,9 @@ class Line extends Layer {
   source = "v"
   type = "line"
   hidden c = "#f0f"
-  hidden z = new { 10 0.2 18 1 }
+  /* hidden z = new { 10 0.2 18 1 } */
   paint {
-    `line-width` = new {
+    /* `line-width` = new {
       "interpolate"
       new { "linear" }
       new { "zoom" }
@@ -37,7 +37,7 @@ class Line extends Layer {
       z[1]
       z[2]
       z[3]
-    }
+    } */
     `line-color` = c
   }
 }
@@ -46,9 +46,9 @@ class Fill extends Layer {
   source = "v"
   type = "fill"
   hidden c = "#f0f"
-  hidden z = new { 15 0 20 1 }
+  /* hidden z = new { 15 0 20 1 } */
   paint {
-    `fill-opacity` = new {
+    /* `fill-opacity` = new {
       "interpolate"
       new { "linear" }
       new { "zoom" }
@@ -56,7 +56,7 @@ class Fill extends Layer {
       z[1]
       z[2]
       z[3]
-    }
+    } */
     `fill-color` = c
   }
 }
@@ -73,6 +73,8 @@ sources {
 layers = new {
   new Background { c = "#f8f9fa" }
   new Fill { sl = "AdmArea" }
-
+  new Fill { sl = "WA" }
+  new Fill { sl = "TpgphArea" }
+  new Line { sl = "Cstline" }
   new Line { sl = "RdCL" }
 }
