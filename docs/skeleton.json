@@ -127,11 +127,11 @@
         "text-font": [
           "NotoSansJP-Regular"
         ],
+        "text-allow-overlap": true,
         "text-field": [
           "get",
           "vt_alti"
         ],
-        "text-allow-overlap": true,
         "text-ignore-placement": true,
         "symbol-placement": "line-center",
         "text-pitch-alignment": "viewport",
@@ -170,11 +170,11 @@
         "text-font": [
           "NotoSansJP-Regular"
         ],
+        "text-allow-overlap": true,
         "text-field": [
           "get",
           "vt_depth"
         ],
-        "text-allow-overlap": true,
         "text-ignore-placement": true,
         "symbol-placement": "line-center",
         "text-pitch-alignment": "viewport",
@@ -344,6 +344,114 @@
       "layout": {
         "text-font": [
           "NotoSansJP-Regular"
+        ],
+        "text-allow-overlap": true
+      }
+    },
+    {
+      "source": "v",
+      "id": "Annotation_1",
+      "source-layer": "Anno",
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ],
+        "text-allow-overlap": true,
+        "text-field": [
+          "get",
+          "vt_text"
+        ],
+        "text-writing-mode": [
+          "horizontal"
+        ]
+      }
+    },
+    {
+      "source": "v",
+      "id": "Annotation_2",
+      "source-layer": "Anno",
+      "filter": [
+        "any",
+        [
+          "!",
+          [
+            "has",
+            "vt_flag17"
+          ]
+        ],
+        [
+          "in",
+          [
+            "get",
+            "vt_flag17"
+          ],
+          [
+            "literal",
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      ],
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ],
+        "text-allow-overlap": true,
+        "text-field": [
+          "get",
+          "vt_text"
+        ],
+        "text-writing-mode": [
+          "horizontal"
+        ]
+      }
+    },
+    {
+      "source": "v",
+      "id": "Annotation_3",
+      "source-layer": "Anno",
+      "filter": [
+        "all",
+        [
+          "in",
+          [
+            "get",
+            "vt_flag17"
+          ],
+          [
+            "literal",
+            [
+              1,
+              2
+            ]
+          ]
+        ]
+      ],
+      "type": "symbol",
+      "paint": {
+        "text-color": "#E30B5D"
+      },
+      "layout": {
+        "text-font": [
+          "NotoSansJP-Regular"
+        ],
+        "text-allow-overlap": true,
+        "text-field": [
+          "get",
+          "vt_text"
+        ],
+        "text-writing-mode": [
+          "horizontal"
         ]
       }
     }

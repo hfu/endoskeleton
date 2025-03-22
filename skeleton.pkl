@@ -64,9 +64,17 @@ open class Symbol extends Layer {
   hidden c = color.raspberry
   layout {
     `text-font` = new { param.font }
+    `text-allow-overlap` = true
   }
   paint {
     `text-color` = color.raspberry
+  }
+}
+
+class Annotation extends Symbol {
+  layout {
+    `text-field` = new { "get" "vt_text" }
+    `text-writing-mode` = new { "horizontal" }
   }
 }
 
@@ -75,7 +83,6 @@ class LineSymbol extends Symbol {
   filter = new { "==" new { "get" "vt_code" } code }
   layout {
     `text-field` = new { "get" field }
-    `text-allow-overlap` = true
     `text-ignore-placement` = true
     `symbol-placement` = "line-center"
     `text-pitch-alignment` = "viewport"
@@ -117,4 +124,16 @@ layers = new {
   new Line { sl = "TrfTnnlEnt" }
   new Line { sl = "PwrTrnsmL" }
   new Symbol { sl = "Anno" }
+  new Annotation { sl = "Anno" id = "Annotation_1" }
+  new Annotation { sl = "Anno" id = "Annotation_2"
+    filter = new {
+      "any" new { "!" new { "has" "vt_flag17" } }
+      new { "in" new { "get" "vt_flag17" } new { "literal" new { 0 1 } } }
+    }
+  }
+  new Annotation { sl = "Anno" id = "Annotation_3"
+    filter = new { 
+      "all" new { "in" new { "get" "vt_flag17" } new { "literal" new { 1 2 } } }
+    }
+  }
 }
