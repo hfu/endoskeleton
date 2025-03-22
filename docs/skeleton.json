@@ -742,7 +742,8 @@
         ],
         "text-writing-mode": [
           "horizontal"
-        ]
+        ],
+        "text-size": 10
       }
     },
     {
@@ -781,7 +782,8 @@
         ],
         "text-writing-mode": [
           "horizontal"
-        ]
+        ],
+        "text-size": 10
       }
     }
   ]

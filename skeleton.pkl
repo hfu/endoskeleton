@@ -178,10 +178,12 @@ layers = new {
       "any" new { "!" new { "has" "vt_flag17" } }
       new { "in" new { "get" "vt_flag17" } new { "literal" new { 0 1 } } }
     }
+    layout { `text-size` = 10 }
   }
   new Annotation { sl = "Anno" id = "Annotation_3"
     filter = new { 
       "all" new { "in" new { "get" "vt_flag17" } new { "literal" new { 1 2 } } }
     }
+    layout { `text-size` = 10 }
   }
 }
