@@ -1,0 +1,78 @@
+hidden params {
+  glyphs = "https://gsi-cyberjapan.github.io/optimal_bvmap/glyphs/{fontstack}/{range}.pbf"
+  sprite = "https://gsi-cyberjapan.github.io/optimal_bvmap/sprite/std"
+  pmtiles = "pmtiles://https://cyberjapandata.gsi.go.jp/xyz/" + 
+    "optimal_bvmap-v1/optimal_bvmap-v1.pmtiles"
+}
+
+open class Layer {
+  hidden sl: String?
+  source: String?
+  id: String? = sl
+  `source-layer`: String? = sl
+  type: String?
+  maxzoom: Int?
+  minzoom: Int?
+  paint {}
+  layout {}
+}
+
+class Background extends Layer {
+  type = "background"
+  hidden c = "#ff0"
+  paint { `background-color` = c }
+}
+
+class Line extends Layer {
+  source = "v"
+  type = "line"
+  hidden c = "#f0f"
+  hidden z = new { 10 0.2 18 1 }
+  paint {
+    `line-width` = new {
+      "interpolate"
+      new { "linear" }
+      new { "zoom" }
+      z[0]
+      z[1]
+      z[2]
+      z[3]
+    }
+    `line-color` = c
+  }
+}
+
+class Fill extends Layer {
+  source = "v"
+  type = "fill"
+  hidden c = "#f0f"
+  hidden z = new { 15 0 20 1 }
+  paint {
+    `fill-opacity` = new {
+      "interpolate"
+      new { "linear" }
+      new { "zoom" }
+      z[0]
+      z[1]
+      z[2]
+      z[3]
+    }
+    `fill-color` = c
+  }
+}
+
+version = 8
+glyphs = params.glyphs
+sprite = params.sprite
+sources {
+  v {
+    type = "vector"
+    url = params.pmtiles
+  }
+}
+layers = new {
+  new Background { c = "#f8f9fa" }
+  new Fill { sl = "AdmArea" }
+
+  new Line { sl = "RdCL" }
+}

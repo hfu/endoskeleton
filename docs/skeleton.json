@@ -1,0 +1,66 @@
+{
+  "version": 8,
+  "glyphs": "https://gsi-cyberjapan.github.io/optimal_bvmap/glyphs/{fontstack}/{range}.pbf",
+  "sprite": "https://gsi-cyberjapan.github.io/optimal_bvmap/sprite/std",
+  "sources": {
+    "v": {
+      "type": "vector",
+      "url": "pmtiles://https://cyberjapandata.gsi.go.jp/xyz/optimal_bvmap-v1/optimal_bvmap-v1.pmtiles"
+    }
+  },
+  "layers": [
+    {
+      "type": "background",
+      "paint": {
+        "background-color": "#f8f9fa"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "AdmArea",
+      "source-layer": "AdmArea",
+      "type": "fill",
+      "paint": {
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          0,
+          20,
+          1
+        ],
+        "fill-color": "#f0f"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "RdCL",
+      "source-layer": "RdCL",
+      "type": "line",
+      "paint": {
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.2,
+          18,
+          1
+        ],
+        "line-color": "#f0f"
+      },
+      "layout": {}
+    }
+  ]
+}
