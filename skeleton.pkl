@@ -1,8 +1,12 @@
-hidden params {
+hidden const param {
   glyphs = "https://gsi-cyberjapan.github.io/optimal_bvmap/glyphs/{fontstack}/{range}.pbf"
   sprite = "https://gsi-cyberjapan.github.io/optimal_bvmap/sprite/std"
   pmtiles = "pmtiles://https://cyberjapandata.gsi.go.jp/xyz/" + 
     "optimal_bvmap-v1/optimal_bvmap-v1.pmtiles"
+}
+
+hidden const color {
+  raspberry = "#E30B5D"
 }
 
 open class Layer {
@@ -27,7 +31,7 @@ class Background extends Layer {
 class Line extends Layer {
   source = "v"
   type = "line"
-  hidden c = "#f0f"
+  hidden c = color.raspberry
   /* hidden z = new { 10 0.2 18 1 } */
   paint {
     /* `line-width` = new {
@@ -46,7 +50,7 @@ class Line extends Layer {
 class Fill extends Layer {
   source = "v"
   type = "fill"
-  hidden c = "#f0f"
+  hidden c = color.raspberry
   /* hidden z = new { 15 0 20 1 } */
   paint {
     /* `fill-opacity` = new {
@@ -63,20 +67,24 @@ class Fill extends Layer {
 }
 
 version = 8
-glyphs = params.glyphs
-sprite = params.sprite
+glyphs = param.glyphs
+sprite = param.sprite
 sources {
   v {
     type = "vector"
-    url = params.pmtiles
+    url = param.pmtiles
   }
 }
 layers = new {
   new Background { c = "#f8f9fa" }
-  new Fill { sl = "AdmArea" }
+  /* new Fill { sl = "AdmArea" } */
   new Fill { sl = "WA" }
   new Fill { sl = "TpgphArea" }
   new Line { sl = "Cstline" }
   new Line { sl = "RdCL" }
   new Line { sl = "RvrCL" }
+  new Line { sl = "WL" }
+  /* new Line { sl = "WRltLine" } */
+  new Line { sl = "AdmBdry" }
+  new Line { sl = "Cntr" }
 }

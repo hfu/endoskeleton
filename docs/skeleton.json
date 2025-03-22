@@ -19,21 +19,11 @@
     },
     {
       "source": "v",
-      "id": "AdmArea",
-      "source-layer": "AdmArea",
-      "type": "fill",
-      "paint": {
-        "fill-color": "#f0f"
-      },
-      "layout": {}
-    },
-    {
-      "source": "v",
       "id": "WA",
       "source-layer": "WA",
       "type": "fill",
       "paint": {
-        "fill-color": "#f0f"
+        "fill-color": "#E30B5D"
       },
       "layout": {}
     },
@@ -43,7 +33,7 @@
       "source-layer": "TpgphArea",
       "type": "fill",
       "paint": {
-        "fill-color": "#f0f"
+        "fill-color": "#E30B5D"
       },
       "layout": {}
     },
@@ -53,7 +43,7 @@
       "source-layer": "Cstline",
       "type": "line",
       "paint": {
-        "line-color": "#f0f"
+        "line-color": "#E30B5D"
       },
       "layout": {}
     },
@@ -63,7 +53,7 @@
       "source-layer": "RdCL",
       "type": "line",
       "paint": {
-        "line-color": "#f0f"
+        "line-color": "#E30B5D"
       },
       "layout": {}
     },
@@ -73,7 +63,37 @@
       "source-layer": "RvrCL",
       "type": "line",
       "paint": {
-        "line-color": "#f0f"
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "WL",
+      "source-layer": "WL",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "AdmBdry",
+      "source-layer": "AdmBdry",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
+      },
+      "layout": {}
+    },
+    {
+      "source": "v",
+      "id": "Cntr",
+      "source-layer": "Cntr",
+      "type": "line",
+      "paint": {
+        "line-color": "#E30B5D"
       },
       "layout": {}
     }
