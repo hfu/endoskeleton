@@ -19,6 +19,7 @@ open class Layer {
 
 class Background extends Layer {
   type = "background"
+  id = "background"
   hidden c = "#ff0"
   paint { `background-color` = c }
 }
