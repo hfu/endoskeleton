@@ -6,9 +6,51 @@ hidden const param {
   font = "NotoSansJP-Regular"
 }
 
+hidden const lib {
+  opac = 1
+  trans = 0.2
+  zoom = new {
+    "interpolate"
+    new { "linear" }
+    new { "zoom" }
+    4 trans
+    4.5 opac
+    5 trans
+    5.5 opac
+    6 trans
+    6.5 opac
+    7.5 opac
+    8 trans
+    8.5 opac
+    9 trans
+    9.5 opac
+    10 trans
+    10.5 opac
+    11 trans
+    11.5 opac
+    12.5 opac
+    13 trans
+    13.5 opac
+    14 trans
+    14.5 opac
+    15 trans
+    15.5 opac
+    16 trans
+    16.5 opac
+  }
+}
+
 hidden const color {
-  raspberry = "#E30B5D"
-  gray = "#888"
+  raspberry = "#e30b5d"
+  white = "#f2f2f2"
+  lightGray = "#e6e6e6"
+  aqua = "#cddcfc"
+  // See https://unopengis.github.io/smartmaps/about/brand
+  smartBlue = "#5c81b8"
+  collaborationGreen = "#97be84"
+  innovationRed = "#97be84"
+  // UN
+  processCyan = "#00aeef"
 }
 
 open class Layer {
@@ -20,24 +62,15 @@ open class Layer {
 
 class Background extends Layer {
   type = "background" id = "background"
-  hidden c = "#ff0"
+  hidden c = color.white
   paint { `background-color` = c }
 }
 
 class Line extends Layer {
   source = "v" type = "line"
   hidden c = color.raspberry
-  /* hidden z = new { 10 0.2 18 1 } */
   paint {
-    /* `line-width` = new {
-      "interpolate"
-      new { "linear" }
-      new { "zoom" }
-      z[0]
-      z[1]
-      z[2]
-      z[3]
-    } */
+    `line-opacity` = lib.zoom
     `line-color` = c
   }
 }
@@ -45,17 +78,8 @@ class Line extends Layer {
 class Fill extends Layer {
   source = "v" type = "fill"
   hidden c = color.raspberry
-  /* hidden z = new { 15 0 20 1 } */
   paint {
-    /* `fill-opacity` = new {
-      "interpolate"
-      new { "linear" }
-      new { "zoom" }
-      z[0]
-      z[1]
-      z[2]
-      z[3]
-    } */
+    `fill-opacity` = lib.zoom
     `fill-color` = c
   }
 }
@@ -65,20 +89,23 @@ open class Symbol extends Layer {
   hidden c = color.raspberry
   layout {
     `text-font` = new { param.font }
-    `text-allow-overlap` = true
   }
   paint {
     `text-color` = color.raspberry
+    `text-opacity` = lib.zoom
   }
 }
 
 class Annotation extends Symbol {
   layout {
     `text-field` = new { "get" "vt_text" }
-    `text-writing-mode` = new { "horizontal" }
+    `text-size` = 10
   }
   paint {
-    `text-color` = color.gray
+    `text-color` = color.raspberry
+    `text-halo-color` = color.white
+    `text-halo-width` = 2
+    `text-halo-blur` = 1
   }
 }
 
@@ -87,7 +114,6 @@ class LineSymbol extends Symbol {
   filter = new { "==" new { "get" "vt_code" } code }
   layout {
     `text-field` = new { "get" field }
-    `text-ignore-placement` = true
     `symbol-placement` = "line-center"
     `text-pitch-alignment` = "viewport"
     `text-rotation-alignment` = "map"
@@ -97,11 +123,12 @@ class LineSymbol extends Symbol {
 }
 
 version = 8 glyphs = param.glyphs sprite = param.sprite
+name = "endoskeleton"
 sources { v { type = "vector" url = param.pmtiles } }
 layers = new {
-  new Background { c = "#f8f9fa" }
-  new Fill { sl = "AdmArea" c = "rgb(255, 255, 0, 0.2)" }
-  new Fill { sl = "WA" }
+  new Background { }
+  new Fill { sl = "AdmArea" c = color.lightGray }
+  new Fill { sl = "WA" c = color.aqua }
   new Fill { sl = "TpgphArea" }
   new Line { sl = "Cstline" }
   new Line { sl = "RvrCL" }
@@ -127,7 +154,7 @@ layers = new {
   new Line { sl = "StrctLine" }
   new Line { sl = "TrfTnnlEnt" }
   new Line { sl = "PwrTrnsmL" }
-  new Symbol { sl = "Anno" 
+  new Symbol { sl = "Anno" id = "Anno_Symbol"
     layout {
       `icon-allow-overlap` = true
       `icon-image` = new { "step" new { "zoom" }
@@ -175,31 +202,9 @@ layers = new {
 	2901 "国道番号-20" 4105 "自然災害伝承碑" 7101 "電子基準点" "" } }
 	`icon-size` = 0.5
       }
-  }
-  new Annotation { sl = "Anno" id = "Annotation_1" 
-    filter = new { "match" new { "get" "vt_code" } new {
-      6368 6376 631 632 633 661 662 
-    } false true }
-    layout { `text-size` = 10 } 
-  }
-  new Annotation { sl = "Anno" id = "Annotation_2"
-    filter = new { "all" 
-      new { "any" 
-        new { "!" new { "has" "vt_flag17" } }
-        new { "in" new { "get" "vt_flag17" } new { "literal" new { 0 1 } } }
+      paint {
+	`icon-opacity` = lib.zoom
       }
-      new { "match" 
-        new { "get" "vt_code" }
-	new { 3201 3204 3212 3213 3214 3215 3216 3217 3218 3243 }
-	false true
-      }
-    }
-    layout { `text-size` = 10 }
   }
-  new Annotation { sl = "Anno" id = "Annotation_3"
-    filter = new { 
-      "all" new { "in" new { "get" "vt_flag17" } new { "literal" new { 1 2 } } }
-    }
-    layout { `text-size` = 10 }
-  }
+  new Annotation { sl = "Anno" id = "Anno_Annotation" }
 }

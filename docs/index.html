@@ -15,7 +15,7 @@ body { margin: 0; padding: 0; font-family: 'Geist Mono', monospace; }
 <body>
 <div id="map"></div>
 <script> 
-const style = 'https://hfu.github.io/endoskeleton/skeleton.json'
+const style = './skeleton.json'
 maplibregl.addProtocol('pmtiles', (new pmtiles.Protocol()).tile)
 const map = new maplibregl.Map({
   container: 'map', style: style, hash: true,
